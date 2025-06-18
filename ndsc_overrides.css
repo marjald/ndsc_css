@@ -1,0 +1,3 @@
+.CMSComponentMainNavigator .MainNavigator li.Active > a {
+    color: #ff0000;
+}
