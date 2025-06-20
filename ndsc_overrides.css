@@ -1,3 +1,130 @@
-.CMSComponentMainNavigator .MainNavigator li.Active > a {
-    color: #ff0000;
+/* NDSC CSS Overrides, added by Marc Alderman*/
+
+:root {
+  --text-color: #d6d6d6;
+  --ndsc-primary: #ffee32;
+  --ndsc-secondary: #ffd100;
+  --bg-color: #202020;
+  --content-bg: #333533;
 }
+
+/* Import of Raleway google font*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400; /* adjust font weight as needed */
+}
+
+/* Background SVG */
+#globalContainer, #news {
+background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Hide content that I don't want as it can't be removed via 
+the designer and leaves blank space at the bottom of the home page */
+#eventsAndCommands, #contact, #updates, #sponsors {
+  display: none;
+}
+
+/* -------------------------------- WELCOME SECTION -------------------------------- */
+
+#welcome {
+background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'%3E%3Cpath d='M480 0L240 480H480V0z' fill='%23FFEE32'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'%3E%3Cpath d='M0 480L240 0H0v480z' fill='%23FFEE32'/%3E%3C/svg%3E");
+  background-size: auto 100%, auto 100%;
+  background-position: right top, left top;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* -------------------------------- NEWS ITEMS - HOME ans NEWS PAGES -------------------------------- */
+
+/* News item background colour, otherwise it will take the general 
+theme colour which is black, ans the same as the background */
+#news .CMSComponentNews .Item, .NewsFilterForm .Item, .CMSComponentFullNews .ItemList .Item {
+    background-color: var(--content-bg);
+   	padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#news .CMSComponentNews .Item .Content h4 > a, .CMSComponentFullNews .ItemList .Item .Content .Title > h4 > a {
+    color: #ffd100;
+}
+
+.CMSComponentFullNews > .ItemList > .Item + .Item:not(.Supplement) {
+    border-top: solid 1px var(--ndsc-primary);
+}
+
+
+/* -------------------------------- OPEN NEWS ITEMS -------------------------------- */
+
+.NewsItem {
+    background-color: var(--content-bg);
+    padding: 1em;
+    color: #d6d6d6;
+    border-radius: 10px;
+}
+
+.NewsItem h1 {
+    color: #ffd100;
+}
+
+
+/* -------------------------------- NAVIGATION BAR -------------------------------- */
+
+/* Navigation menu item color */
+.CMSComponentMainNavigator .MainNavigator li > a {
+    color: var(--ndsc-primary);
+}
+
+/* Navigation menu active item color */
+.CMSComponentMainNavigator .MainNavigator li.Active > a {
+    color: #ffffff;
+}
+
+.CMSComponentMainNavigator {
+background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 480'%3E%3Cpolygon points='1000,240 0,0 0,480' fill='%23FFEE32'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 480'%3E%3Cpolygon points='0,240 1000,0 1000,480' fill='%23FFEE32'/%3E%3C/svg%3E");
+  background-size: auto 100%, auto 100%;
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* -------------------------------- SOCIAL LINKS -------------------------------- */
+
+/* Social links colour */
+.CMSComponentSocialLinks > .Horizontal > li > a {
+    background: var(--content-bg);
+}
+
+/* Navigation open menu background colour - white by default and can't change it in designer that I can see */
+#cms_Section_menuBar ul ul {
+  background: #d6d6d6;
+}
+
+/* Mobile navigation open menu background colour */
+.DynamicTemplate_cms_widgets_MobileHeader_xhtml .AnonId__cms_widgets_MobileHeader_xhtml_menuContainerInner {
+  background: #d6d6d6;
+}
+
+#siteFooter {
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100'%3E%3Cpath d='M0 0v92.3C106.3 35 276 23.6 343.6 73.7 458.2 18.3 637 8.5 693 57.3 779.6 18.6 915.7-2.4 1000 16.1V0H0Z' fill='%23FFEE32'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 100% auto;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.CustomPageComponentContent {
+      background-color: var(--content-bg);
+    color: #d6d6d6;
+}
+
+
+
+
+
+
