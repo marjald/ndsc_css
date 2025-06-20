@@ -16,6 +16,10 @@ body {
   font-weight: 400; /* adjust font weight as needed */
 }
 
+h2 {
+    color: var(--ndsc-secondary);
+}
+
 /* Background SVG */
 #globalContainer, #news {
 background-color: #000000;
@@ -26,6 +30,14 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 the designer and leaves blank space at the bottom of the home page */
 #eventsAndCommands, #contact, #updates, #sponsors {
   display: none;
+}
+
+/* -------------------------------- CUSTOM PAGES - The main content of each page ----------------------------- */
+
+.CustomPageComponentContent:has(.NDSCCustomPageCard) {
+  background-color: #333533; /* Change the background to grey */
+  border-radius: 15px;
+  padding: 15px;
 }
 
 /* -------------------------------- WELCOME SECTION -------------------------------- */
@@ -82,7 +94,7 @@ theme colour which is black, ans the same as the background */
 
 /* Navigation menu active item color */
 .CMSComponentMainNavigator .MainNavigator li.Active > a {
-    color: #ffffff;
+    color: var(--ndsc-secondary);
 }
 
 .CMSComponentMainNavigator {
@@ -93,6 +105,20 @@ background-image:
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
 }
+
+ul.MainNavigator.Menu > li.Active {
+  border-bottom: 1px solid var(--ndsc-primary);
+  color: var(--ndsc-secondary);
+}
+
+#cms_Section_menuBar > div > div > div > ul > li.Active.WithChildren > ul > li.Active > a {
+color: var(--bg-color);
+}
+
+#menuBar {
+  border-bottom: none;
+}
+
 
 /* -------------------------------- SOCIAL LINKS -------------------------------- */
 
