@@ -20,8 +20,13 @@ h2 {
     color: var(--ndsc-secondary);
 }
 
+.NDSCCustomPageCard h3 {
+  color: #ffffff;
+}
+
+
 /* Background SVG */
-#globalContainer, #news {
+#globalContainer, #news{
 background-color: #000000;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
@@ -34,21 +39,82 @@ the designer and leaves blank space at the bottom of the home page */
 
 /* -------------------------------- CUSTOM PAGES - The main content of each page ----------------------------- */
 
-.CustomPageComponentContent:has(.NDSCCustomPageCard) {
+.CustomPageComponentContent:has(.NDSCCustomPageCard), .CMSComponentMainText:has(.NDSCCustomPageCard){
   background-color: #333533; /* Change the background to grey */
   border-radius: 15px;
   padding: 15px;
+  border: 1px solid var(--ndsc-primary);
 }
+
+.CustomPageComponentContent, .NDSCCustomPageCard {
+    background-color: var(--content-bg);
+    color: #d6d6d6;
+}
+
+/* Stop button getting truncated when screen is narrow, but not under 922px where it will switch to mobile */
+
+@media (min-width: 922px) {
+  .CMSComponent.CMSComponentCommandButtons {
+    overflow: visible;
+  }
+}
+
+.ndsc_hdivide {
+  background-image: url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/skewed-rectangle-short.svg');
+  background-size: 100% auto;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1em;
+    
+}
+
+.ndsc_hdivide_narrow {
+  background-image: url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/skewed-rectangle-narrow.svg');
+  background-size: 100% auto;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1em;
+    
+}
+
+@media (max-width: 922px) {
+  .ndsc_hdivide_narrow {
+    margin-top: 1em;
+  }
+}
+
 
 /* -------------------------------- WELCOME SECTION -------------------------------- */
 
-#welcome {
+#welcome, #mainContent {
 background-image: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'%3E%3Cpath d='M480 0L240 480H480V0z' fill='%23FFEE32'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'%3E%3Cpath d='M0 480L240 0H0v480z' fill='%23FFEE32'/%3E%3C/svg%3E");
-  background-size: auto 100%, auto 100%;
-  background-position: right top, left top;
-  background-repeat: no-repeat, no-repeat;
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-bottom-left.svg'),
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-top-left.svg'),
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-top-right.svg'),
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-bottom-right.svg');
+  background-size: 
+    5% auto,
+    5% auto,
+    5% auto,
+    5% auto;
+  background-position: 
+    left bottom,
+    left top,
+    right top,
+    right bottom;
+  background-repeat: 
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
 }
 
 /* -------------------------------- NEWS ITEMS - HOME ans NEWS PAGES -------------------------------- */
@@ -60,14 +126,38 @@ theme colour which is black, ans the same as the background */
    	padding: 1em;
     border-radius: 10px;
     margin-bottom: 15px;
+    border: 1px solid var(--ndsc-primary);
 }
 
 #news .CMSComponentNews .Item .Content h4 > a, .CMSComponentFullNews .ItemList .Item .Content .Title > h4 > a {
     color: #ffd100;
 }
 
+.CMSComponentFullNews .ItemList .Item .Content {
+	background-color: var(--content-bg);
+}
+
 .CMSComponentFullNews > .ItemList > .Item + .Item:not(.Supplement) {
     border-top: solid 1px var(--ndsc-primary);
+}
+
+.CMSComponentFullNews .NewsFilterForm > h2 {
+    color: var(--ndsc-secondary);
+}
+
+.responsive-image {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ffee32;
+  box-shadow: 0 0 15px 5px #ffee32;
+}
+
+@media screen and (max-width: 991px) {
+    #welcome > .CMSSection, #news > .CMSSection, #eventsAndCommands > .CMSSection, #updates > .CMSSection, #contact > .CMSSection, #sponsors > .CMSSection {
+        padding: 2em 4em 0em 2em;
+    }
 }
 
 
@@ -78,6 +168,7 @@ theme colour which is black, ans the same as the background */
     padding: 1em;
     color: #d6d6d6;
     border-radius: 10px;
+    border: 1px solid var(--ndsc-primary);
 }
 
 .NewsItem h1 {
@@ -119,6 +210,20 @@ color: var(--bg-color);
   border-bottom: none;
 }
 
+/* mobile */
+
+.DynamicTemplate_cms_widgets_MobileHeader_xhtml .AnonId__cms_widgets_MobileHeader_xhtml_menuContainerInner a {
+	color: #d6d6d6;
+}
+
+.MainNavigator li.Active > a {
+    color: #ffee32;
+}
+        
+.MainNavigator li:hover > a {
+    color: #ffd100;
+ }
+
 
 /* -------------------------------- SOCIAL LINKS -------------------------------- */
 
@@ -134,7 +239,7 @@ color: var(--bg-color);
 
 /* Mobile navigation open menu background colour */
 .DynamicTemplate_cms_widgets_MobileHeader_xhtml .AnonId__cms_widgets_MobileHeader_xhtml_menuContainerInner {
-  background: #d6d6d6;
+  background: #333533;
 }
 
 #siteFooter {
@@ -144,10 +249,43 @@ color: var(--bg-color);
   background-repeat: no-repeat;
 }
 
-.CustomPageComponentContent {
-      background-color: var(--content-bg);
-    color: #d6d6d6;
+.IconWrapper {
+    border: 1px solid var(--ndsc-primary);
 }
+
+
+#news {
+  background-image: 
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-bottom-left.svg'), 
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-top-left.svg'), 
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-top-right.svg'), 
+    url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/triangle-half-bottom-right.svg'),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 5% auto, 5% auto, 5% auto, 5% auto, auto;
+  background-position: left bottom, left top, right top, right bottom, center center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+}
+
+.NDSCCustomPageCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.NDSCCustomPageCard ul li {
+  background-image: url('https://raw.githubusercontent.com/marjald/ndsc_css/refs/heads/main/bpoint.svg');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.NDSCCustomPageCard ul li {
+  line-height: 24px; /* adjust the line height to create space between list items */
+}
+
+
+
 
 
 
