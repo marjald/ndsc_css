@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+.timetable .time {
+  font-family: "Roboto", sans-serif;
+  color: #d6d6d6;
+  font-size: 14.4px;
+  text-align: center;
+}
+
+.flex-container {
+  margin-bottom: 40px;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.NDSCSmallCard {
+  padding: 10px;
+  width: 30em;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid var(--ndsc-primary);
+  border-radius: 10px;
+  background-color: var(--content-bg);
+  color: #d6d6d6;
+}
+
+.timetable {
+  border-collapse: separate;
+  border-spacing: 0.3em;
+  width: 100%;
+}
+
+.timetable th,
+.timetable td {
+  border: none;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.timetable th {
+  background-color: transparent;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.timetable td {
+  color: #d6d6d6;
+}
+
+.timetable td.session {
+  background-color: #444;
+}
+
+.long {
+  display: block;
+  text-align: left;
+}
+
+.short {
+  display: none;
+}
+
+@media only screen and (max-width: 425px) {
+  .long {
+    display: none;
+  }
+
+  .short {
+    display: block;
+    text-align: left;
+  }
+
+  .NDSCSmallCard {
+    padding: 5px;
+  }
+}
+
+.timetable .time {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #d6d6d6;
+  text-align: center;
+}
+
+.timetable .location {
+  font-family: "Roboto", sans-serif;
+  color: #d6d6d6;
+  text-align: center;
+  margin-top: 0.5em;
+  display: block;
+}
+
+.timetable .details {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  color: #e6d8a0;
+  display: block;
+  text-align: centre;
+  border-top: 1px solid #e6d8a0;
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+}
